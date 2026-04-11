@@ -1,0 +1,108 @@
+---
+---
+
+<section id="linkedin" class="relative py-24 bg-navy-600 overflow-hidden" aria-labelledby="linkedin-heading">
+  <!-- Subtle grid overlay -->
+  <div class="absolute inset-0 opacity-[0.03] pointer-events-none" aria-hidden="true">
+    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="grid-li" width="40" height="40" patternUnits="userSpaceOnUse">
+          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="1"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#grid-li)" />
+    </svg>
+  </div>
+
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+
+      <!-- Widget -->
+      <div
+        class="reveal bg-navy-700/50 border border-white/10 rounded-2xl p-8 md:p-12 backdrop-blur-sm"
+        style="background: linear-gradient(135deg, rgba(13,27,42,0.8) 0%, rgba(10,22,38,0.9) 100%);"
+      >
+        <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+
+          <!-- LinkedIn logo + pulse indicator -->
+          <div class="shrink-0">
+            <div class="relative">
+              <div class="w-20 h-20 rounded-2xl bg-[#0A66C2] flex items-center justify-center shadow-lg shadow-[#0A66C2]/30">
+                <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              </div>
+              <!-- Live badge -->
+              <div class="absolute -top-1.5 -right-1.5 flex items-center gap-1 bg-em-400 rounded-full px-2 py-0.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse" aria-hidden="true"></span>
+                <span class="text-white text-[10px] font-bold uppercase tracking-wider">Aktywny</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="flex-1 text-center md:text-left">
+            <p id="linkedin-heading" class="section-label text-em-400">Sieć zawodowa</p>
+            <h2 class="font-serif text-2xl md:text-3xl font-bold text-white mb-3 leading-tight">
+              Połącz się ze&nbsp;mną na&nbsp;LinkedIn
+            </h2>
+            <p class="text-slate-300 text-base leading-relaxed mb-6 max-w-lg">
+              Śledzę i komentuję najnowsze trendy rynku IVD, transformacje diagnostyki
+              laboratoryjnej oraz praktyki zarządzania zespołami sprzedażowymi w branży
+              medical devices. Zapraszam do nawiązania kontaktu.
+            </p>
+
+            <!-- Mock activity pills -->
+            <div class="flex flex-wrap gap-2 mb-8 justify-center md:justify-start" aria-label="Tematy artykułów">
+              {
+                [
+                  'Trendy IVD 2025',
+                  'P&L Best Practices',
+                  'EMEA Market Insights',
+                  'Sales Leadership',
+                  'Digital Diagnostics',
+                ].map((tag) => (
+                  <span class="text-xs text-white/70 bg-white/10 border border-white/10 rounded-full px-3 py-1 hover:bg-white/15 transition-colors duration-200">
+                    {tag}
+                  </span>
+                ))
+              }
+            </div>
+
+            <a
+              href="https://www.linkedin.com/in/sebastiansosniak/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-linkedin text-base px-7 py-3 inline-flex"
+              aria-label="Przejdź do profilu Sebastian Sosniak na LinkedIn (otworzy się w nowej karcie)"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              Otwórz profil LinkedIn
+            </a>
+          </div>
+        </div>
+
+        <!-- Decorative separator -->
+        <div class="mt-10 pt-8 border-t border-white/10">
+          <div class="flex flex-wrap gap-6 justify-center text-center" aria-label="Social proof">
+            {
+              [
+                { label: 'Obserwujący', value: '500+' },
+                { label: 'Rekomendacje', value: '12+' },
+                { label: 'Lat na LinkedIn', value: '10+' },
+              ].map((item) => (
+                <div>
+                  <p class="font-serif text-xl font-bold text-em-400">{item.value}</p>
+                  <p class="text-white/50 text-xs mt-0.5">{item.label}</p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

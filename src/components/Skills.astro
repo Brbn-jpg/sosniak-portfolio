@@ -1,0 +1,110 @@
+---
+const skills = [
+  { title: 'Sales Team Leadership & Development',     subtitle: 'Budowanie i zarządzanie zespołami sprzedaży' },
+  { title: 'Business Development & Growth Strategy',  subtitle: 'Ekspansja rynkowa i strategia wzrostu' },
+  { title: 'Key Account & KOL Management',            subtitle: 'Kluczowi klienci i liderzy opinii' },
+  { title: 'P&L / Budget Management',                 subtitle: 'Zarządzanie wynikiem finansowym i budżetem' },
+  { title: 'Customer Segmentation & Pricing',         subtitle: 'Segmentacja klientów i strategia cenowa' },
+  { title: 'Distributor & Channel Management',        subtitle: 'Zarządzanie siecią dystrybucji' },
+  { title: 'Product & Application Expertise',         subtitle: 'Chemia kliniczna, hematologia, hemostaza, immunochemia' },
+  { title: 'Market Analysis & Competitive Strategy',  subtitle: 'Analiza rynku i pozycjonowanie konkurencyjne' },
+  { title: 'Tender & Public Procurement',             subtitle: 'Przetargi publiczne i zamówienia' },
+];
+---
+
+<section id="skills" class="py-24 bg-slate-50" aria-labelledby="skills-heading">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14 reveal">
+      <p class="section-label">Kluczowe kompetencje</p>
+      <h2 id="skills-heading" class="section-heading">
+        Obszary specjalizacji
+      </h2>
+      <p class="text-slate-500 mt-4 max-w-xl mx-auto">
+        Unikalna kombinacja wiedzy naukowej i doświadczenia biznesowego w branży IVD i urządzeń medycznych.
+      </p>
+    </div>
+
+    <ul
+      class="reveal-stagger grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
+      role="list"
+      aria-label="Lista kompetencji"
+    >
+      {
+        skills.map((skill) => (
+          <li class="skill-card group bg-white border border-slate-200 rounded-xl p-6 hover:border-em-300 hover:shadow-md cursor-default">
+            <div class="w-8 h-0.5 bg-em-400 mb-5 opacity-60 group-hover:opacity-100 group-hover:w-12 transition-all duration-300" aria-hidden="true"></div>
+            <h3 class="font-semibold text-navy-600 mb-1">{skill.title}</h3>
+            <p class="text-sm text-slate-500">{skill.subtitle}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<!-- Spring physics (Web Animations API) + mouse-spotlight for skill cards -->
+<script>
+  function springKF(
+    fromY: number,
+    toY: number,
+    opts: { stiffness?: number; damping?: number; mass?: number } = {}
+  ): Keyframe[] {
+    const { stiffness = 380, damping = 22, mass = 1 } = opts;
+    const frames: number[] = [];
+    let pos = fromY, vel = 0;
+    const dt = 1 / 60;
+
+    for (let i = 0; i < 240; i++) {
+      const acc = (-stiffness * (pos - toY) - damping * vel) / mass;
+      vel += acc * dt;
+      pos += vel * dt;
+      frames.push(pos);
+      if (Math.abs(pos - toY) < 0.005 && Math.abs(vel) < 0.005) break;
+    }
+
+    return frames.map((y, i) => ({
+      transform: `translateY(${y.toFixed(4)}px)`,
+      offset: i / Math.max(frames.length - 1, 1),
+    }));
+  }
+
+  const prefersReducedMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)'
+  ).matches;
+
+  document.querySelectorAll<HTMLElement>('.skill-card').forEach((card) => {
+    let activeAnim: Animation | null = null;
+
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      card.style.setProperty('--mouse-x', `${x}%`);
+      card.style.setProperty('--mouse-y', `${y}%`);
+    });
+
+    if (prefersReducedMotion) return;
+
+    card.addEventListener('mouseenter', () => {
+      activeAnim?.cancel();
+      const kf = springKF(0, -7, { stiffness: 380, damping: 22 });
+      activeAnim = card.animate(kf, {
+        duration: (kf.length / 60) * 1000,
+        fill: 'forwards',
+        easing: 'linear',
+      });
+    });
+
+    card.addEventListener('mouseleave', () => {
+      const matrix = new DOMMatrix(getComputedStyle(card).transform);
+      const currentY = matrix.m42;
+      activeAnim?.cancel();
+      const kf = springKF(currentY, 0, { stiffness: 300, damping: 28 });
+      activeAnim = card.animate(kf, {
+        duration: (kf.length / 60) * 1000,
+        fill: 'forwards',
+        easing: 'linear',
+      });
+    });
+  });
+</script>

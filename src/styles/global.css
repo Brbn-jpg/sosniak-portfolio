@@ -1,0 +1,259 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Design tokens ─── */
+:root {
+  /* Easing */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+
+  /* Brand colors — mirrors Tailwind theme, usable in raw CSS / inline styles */
+  --color-em-400: #2ECC8B;
+  --color-em-500: #22A872;
+  --color-navy-600: #0D1B2A;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    @apply bg-white text-navy-600 font-sans;
+  }
+
+  /* Reduce motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* ─── Scroll-reveal animation ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Staggered reveal children
+     Uses animation-delay (not transition-delay) so hover/interaction
+     transitions on children are NEVER delayed — only the entrance is. */
+  .reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  .reveal-stagger.visible > * {
+    animation: staggerReveal 0.6s var(--ease-out) both;
+  }
+
+  .reveal-stagger.visible > *:nth-child(1)  { animation-delay: 0ms; }
+  .reveal-stagger.visible > *:nth-child(2)  { animation-delay: 70ms; }
+  .reveal-stagger.visible > *:nth-child(3)  { animation-delay: 140ms; }
+  .reveal-stagger.visible > *:nth-child(4)  { animation-delay: 210ms; }
+  .reveal-stagger.visible > *:nth-child(5)  { animation-delay: 280ms; }
+  .reveal-stagger.visible > *:nth-child(6)  { animation-delay: 350ms; }
+  .reveal-stagger.visible > *:nth-child(7)  { animation-delay: 420ms; }
+  .reveal-stagger.visible > *:nth-child(8)  { animation-delay: 490ms; }
+  .reveal-stagger.visible > *:nth-child(9)  { animation-delay: 560ms; }
+  .reveal-stagger.visible > *:nth-child(10) { animation-delay: 630ms; }
+
+  @keyframes staggerReveal {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── Timeline draw-in animation ─── */
+  .timeline-draw {
+    transform-origin: top center;
+    transform: scaleY(0);
+    transition: transform 1.6s var(--ease-out) 0.2s;
+  }
+
+  .timeline-draw.visible {
+    transform: scaleY(1);
+  }
+
+  /* ─── Button base ─── */
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium;
+    transition: transform 160ms var(--ease-out), box-shadow 160ms var(--ease-out), background-color 160ms var(--ease-out);
+  }
+
+  .btn:active {
+    transform: scale(0.97);
+  }
+
+  .btn-primary {
+    @apply btn bg-em-400 text-white;
+  }
+
+  .btn-primary:hover {
+    @apply bg-em-500;
+    box-shadow: 0 4px 14px color-mix(in srgb, var(--color-em-400) 35%, transparent);
+  }
+
+  .btn-outline {
+    @apply btn border border-slate-300 text-navy-600 bg-white;
+  }
+
+  .btn-outline:hover {
+    @apply border-navy-400 bg-navy-50;
+  }
+
+  .btn-linkedin {
+    @apply btn bg-[#0A66C2] text-white;
+  }
+
+  .btn-linkedin:hover {
+    background-color: #0958a8;
+    box-shadow: 0 4px 14px rgba(10, 102, 194, 0.35);
+  }
+
+  /* ─── Section heading ─── */
+  .section-label {
+    @apply text-xs font-semibold uppercase tracking-widest text-em-500 mb-2;
+  }
+
+  .section-heading {
+    @apply font-serif text-3xl md:text-4xl font-bold text-navy-600 leading-tight;
+  }
+
+  /* ─── Focus-visible rings (WCAG 2.4.7) ─── */
+  a:focus-visible,
+  button:focus-visible,
+  .btn:focus-visible {
+    outline: 2px solid var(--color-em-400);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* ─── Hero parallax layer ─── */
+  .hero-parallax {
+    will-change: transform;
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   @property — top-level, outside @layer
+   Enables smooth interpolation of custom properties
+   that CSS can't normally animate (lengths in
+   complex contexts, gradient stops, etc.)
+   ═══════════════════════════════════════════════ */
+@property --glow-spread {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 0px;
+}
+
+/* ─── Skill card: mouse-spotlight + @property glow ─── */
+.skill-card {
+  position: relative;
+  overflow: hidden;
+  --glow-spread: 0px;
+  box-shadow: 0 0 var(--glow-spread) color-mix(in srgb, var(--color-em-400) 18%, transparent);
+  /* --glow-spread is a registered <length>, so this transition works */
+  transition: --glow-spread 0.5s var(--ease-out),
+              border-color 0.3s var(--ease-out);
+}
+
+.skill-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    color-mix(in srgb, var(--color-em-400) 7%, transparent) 0%,
+    transparent 65%
+  );
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 400ms var(--ease-out);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.skill-card:hover {
+  --glow-spread: 20px;
+}
+
+.skill-card:hover::before {
+  opacity: 1;
+}
+
+/* Ensure card content sits above the spotlight pseudo-element */
+.skill-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Nav scroll-progress bar ─── */
+#scroll-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--color-em-400) 0%, var(--color-em-500) 100%);
+  transform-origin: left center;
+  transform: scaleX(0);
+  pointer-events: none;
+}
+
+/* Scroll-driven: only when supported + no reduced-motion */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    #scroll-progress {
+      animation: progressGrow linear both;
+      animation-timeline: scroll(root block);
+      transform: initial;
+    }
+  }
+}
+
+@keyframes progressGrow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* ─── Timeline emerald progress overlay (scroll-driven) ─── */
+.timeline-progress {
+  transform-origin: top center;
+  /* Default: fully drawn (no scroll-driven animation) */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .timeline-progress {
+      animation: drawTimeline linear both;
+      animation-timeline: view(block);
+      animation-range: entry 5% cover 85%;
+    }
+  }
+}
+
+@keyframes drawTimeline {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
