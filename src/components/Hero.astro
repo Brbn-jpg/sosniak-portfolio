@@ -1,8 +1,10 @@
 ---
+import { Image } from 'astro:assets';
+import labImg from '../assets/photos/lab.png';
 ---
 
 <header
-  class="relative min-h-[85vh] flex items-center bg-navy-600 overflow-hidden"
+  class="relative min-h-[90vh] flex items-start bg-navy-600 overflow-hidden"
   aria-labelledby="hero-heading"
 >
   <!-- Diagonal-stripe pattern -->
@@ -18,100 +20,129 @@
   </div>
 
   <!-- Central Glow -->
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-4xl max-h-4xl bg-em-400/10 blur-[120px] rounded-full pointer-events-none" aria-hidden="true"></div>
+  <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-5xl max-h-5xl bg-em-400/10 blur-[140px] rounded-full pointer-events-none" aria-hidden="true"></div>
 
-  <!-- Emerald vertical accent lines -->
-  <div class="absolute top-0 left-8 lg:left-16 w-px h-full opacity-10"
-    style="background: linear-gradient(to bottom, transparent 0%, var(--color-em-400) 20%, var(--color-em-400) 80%, transparent 100%);"
-    aria-hidden="true"
-  ></div>
-  <div class="absolute top-0 right-8 lg:right-16 w-px h-full opacity-10"
-    style="background: linear-gradient(to bottom, transparent 0%, var(--color-em-400) 20%, var(--color-em-400) 80%, transparent 100%);"
-    aria-hidden="true"
-  ></div>
+  <div class="hero-parallax relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 pt-32 lg:py-32 w-full">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center lg:items-start">
+      
+      <!-- Left: Content (Staggered lower on desktop) -->
+      <div class="text-center lg:text-left lg:mt-32">
+        <!-- Eyebrow -->
+        <p
+          class="text-em-400 text-sm font-bold uppercase tracking-[0.3em] mb-6 opacity-0 animate-[fadeIn_0.6s_cubic-bezier(0.23,1,0.32,1)_0.1s_forwards]"
+        >
+          IVD Strategic Leadership
+        </p>
 
-  <div class="hero-parallax relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 pt-32 lg:py-32 lg:pt-40 w-full text-center">
-    
-    <!-- Eyebrow -->
-    <p
-      class="text-em-400 text-sm font-bold uppercase tracking-[0.3em] mb-6 opacity-0 animate-[fadeIn_0.6s_cubic-bezier(0.23,1,0.32,1)_0.1s_forwards]"
-    >
-      IVD Strategic Leadership
-    </p>
+        <!-- H1 -->
+        <h1
+          id="hero-heading"
+          class="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.05] tracking-tight mb-8 opacity-0 animate-[fadeUp_0.8s_cubic-bezier(0.23,1,0.32,1)_0.2s_forwards]"
+        >
+          IVD Sales &amp;<br/>Operations Leader
+          <span class="block text-em-400 mt-2">Chief Operating Officer</span>
+        </h1>
 
-    <!-- H1 -->
-    <h1
-      id="hero-heading"
-      class="font-serif text-5xl sm:text-7xl lg:text-8xl font-bold text-white leading-[1.05] tracking-tight mb-8 opacity-0 animate-[fadeUp_0.8s_cubic-bezier(0.23,1,0.32,1)_0.2s_forwards]"
-    >
-      IVD Sales &amp;<br/>Operations Leader
-      <span class="block text-em-400 mt-2">Chief Operating Officer</span>
-    </h1>
+        <!-- Name tag -->
+        <div
+          class="inline-flex items-center gap-3 bg-white/[0.05] border border-white/10 rounded-full px-6 py-2 mb-10 opacity-0 animate-[fadeIn_0.6s_cubic-bezier(0.23,1,0.32,1)_0.35s_forwards]"
+        >
+          <span class="w-2 h-2 rounded-full bg-em-400" aria-hidden="true"></span>
+          <span class="text-white/90 text-base font-medium tracking-wide">Sebastian Sosniak</span>
+        </div>
 
-    <!-- Name tag -->
-    <div
-      class="inline-flex items-center gap-3 bg-white/[0.05] border border-white/10 rounded-full px-6 py-2 mb-10 opacity-0 animate-[fadeIn_0.6s_cubic-bezier(0.23,1,0.32,1)_0.35s_forwards]"
-    >
-      <span class="w-2 h-2 rounded-full bg-em-400" aria-hidden="true"></span>
-      <span class="text-white/90 text-base font-medium tracking-wide">Sebastian Sosniak</span>
-    </div>
+        <!-- Subtitle -->
+        <p
+          class="text-slate-300/90 text-lg sm:text-xl leading-relaxed mb-12 max-w-2xl mx-auto lg:mx-0 opacity-0 animate-[fadeUp_0.7s_cubic-bezier(0.23,1,0.32,1)_0.5s_forwards]"
+        >
+          Ponad 25 lat doświadczenia w branży IVD &mdash; od operacji laboratoryjnych do strategicznego
+          przywództwa komercyjnego. Udokumentowane wyniki sprzedażowe w regionie EMEA, zarządzanie
+          P&amp;L i transformacja cyfrowa.
+        </p>
 
-    <!-- Subtitle -->
-    <p
-      class="text-slate-300/90 text-xl sm:text-2xl leading-relaxed mb-12 max-w-3xl mx-auto opacity-0 animate-[fadeUp_0.7s_cubic-bezier(0.23,1,0.32,1)_0.5s_forwards]"
-    >
-      Ponad 25 lat doświadczenia w branży IVD &mdash; od operacji laboratoryjnych do strategicznego
-      przywództwa komercyjnego. Udokumentowane wyniki sprzedażowe w regionie EMEA, zarządzanie
-      P&amp;L i transformacja cyfrowa.
-    </p>
+        <!-- CTA buttons -->
+        <div
+          class="flex flex-wrap justify-center lg:justify-start gap-4 opacity-0 animate-[fadeUp_0.6s_cubic-bezier(0.23,1,0.32,1)_0.65s_forwards]"
+        >
+          <a href="/cv-sebastian-sosniak.pdf" download="CV_Sebastian_Sosniak.pdf" class="btn-primary text-lg px-8 py-4" aria-label="Pobierz CV Sebastian Sosniak (PDF)">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            Pobierz CV
+          </a>
+          <a
+            href="https://www.linkedin.com/in/sebastiansosniak/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-linkedin text-lg px-8 py-4"
+            aria-label="Profil LinkedIn Sebastian Sosniak (otworzy się w nowej karcie)"
+          >
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+            LinkedIn
+          </a>
+        </div>
 
-    <!-- CTA buttons -->
-    <div
-      class="flex flex-wrap justify-center gap-4 opacity-0 animate-[fadeUp_0.6s_cubic-bezier(0.23,1,0.32,1)_0.65s_forwards]"
-    >
-      <a href="/cv-sebastian-sosniak.pdf" download="CV_Sebastian_Sosniak.pdf" class="btn-primary text-lg px-8 py-4" aria-label="Pobierz CV Sebastian Sosniak (PDF)">
-        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-        </svg>
-        Pobierz CV
-      </a>
-      <a
-        href="https://www.linkedin.com/in/sebastiansosniak/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn-linkedin text-lg px-8 py-4"
-        aria-label="Profil LinkedIn Sebastian Sosniak (otworzy się w nowej karcie)"
-      >
-        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-        </svg>
-        LinkedIn
-      </a>
-    </div>
+        <!-- Stats strip -->
+        <div
+          class="mt-20 pt-10 border-t border-white/10 grid grid-cols-3 gap-8 max-w-2xl mx-auto lg:mx-0 opacity-0 animate-[fadeIn_0.8s_cubic-bezier(0.23,1,0.32,1)_0.8s_forwards]"
+          aria-label="Kluczowe liczby"
+        >
+          {
+            [
+              { count: 25, suffix: '+', label: 'Lat w branży IVD' },
+              { count: 7,  suffix: '',  label: 'Krajów NEEU' },
+              { count: 110, suffix: '%', label: 'Realizacja targetów' },
+            ].map((stat) => (
+              <div>
+                <p
+                  class="font-serif text-3xl sm:text-4xl font-bold text-em-400 tabular-nums"
+                  data-count={stat.count}
+                  data-suffix={stat.suffix}
+                >
+                  {stat.count}{stat.suffix}
+                </p>
+                <p class="text-white/60 text-[10px] sm:text-xs mt-2 leading-snug uppercase tracking-widest font-semibold">{stat.label}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
 
-    <!-- Stats strip -->
-    <div
-      class="mt-20 pt-10 border-t border-white/10 grid grid-cols-3 gap-8 max-w-3xl mx-auto opacity-0 animate-[fadeIn_0.8s_cubic-bezier(0.23,1,0.32,1)_0.8s_forwards]"
-      aria-label="Kluczowe liczby"
-    >
-      {
-        [
-          { count: 25, suffix: '+', label: 'Lat w branży IVD' },
-          { count: 7,  suffix: '',  label: 'Krajów NEEU' },
-          { count: 110, suffix: '%', label: 'Realizacja targetów' },
-        ].map((stat) => (
-          <div class="text-center">
-            <p
-              class="font-serif text-4xl sm:text-5xl font-bold text-em-400 tabular-nums"
-              data-count={stat.count}
-              data-suffix={stat.suffix}
-            >
-              {stat.count}{stat.suffix}
-            </p>
-            <p class="text-white/60 text-xs sm:text-sm mt-2 leading-snug uppercase tracking-widest font-semibold">{stat.label}</p>
+      <!-- Right: Lab Image (Hidden on mobile, high on desktop) -->
+      <div class="hidden lg:mt-48 lg:block relative opacity-0 animate-[fadeIn_1s_cubic-bezier(0.23,1,0.32,1)_0.4s_forwards]">
+        <!-- Decorative frame -->
+        <div class="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-em-400/30 rounded-tl-2xl -z-10"></div>
+        <div class="absolute -bottom-4 -right-4 w-32 h-32 border-b-2 border-r-2 border-em-400/30 rounded-br-2xl -z-10"></div>
+        
+        <div class="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-navy-900/50">
+          <Image 
+            src={labImg} 
+            alt="Sebastian Sosniak w laboratorium diagnostycznym" 
+            class="w-full h-full object-cover grayscale-[0.1] hover:grayscale-0 transition-all duration-700 scale-105 hover:scale-100"
+            loading="eager"
+          />
+          <!-- Subtle overlay -->
+          <div class="absolute inset-0 bg-gradient-to-tr from-navy-900/40 to-transparent"></div>
+        </div>
+
+        <!-- Floating Badge -->
+        <div class="absolute -bottom-6 -left-6 bg-white border border-slate-100 rounded-xl p-4 shadow-xl hidden xl:block">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-em-50 flex items-center justify-center text-em-500">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-wider font-bold text-slate-400">Ekspercka wiedza</p>
+              <p class="text-sm font-bold text-navy-600 leading-none">Praktyka laboratoryjna</p>
+            </div>
           </div>
-        ))
-      }
+        </div>
+      </div>
+
     </div>
   </div>
 </header>
