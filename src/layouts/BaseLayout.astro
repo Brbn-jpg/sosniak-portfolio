@@ -6,16 +6,16 @@ export interface Props {
 }
 
 const {
-  title = 'Sebastian Sośniak | IVD Sales & Operations Leader | COO',
-  description = 'Senior IVD executive with 25+ years spanning laboratory operations and commercial leadership. MBA, P&L responsibility, and proven sales team growth across EMEA medical devices market.',
-  canonical = 'https://sebastiansosniak.com',
+  title = 'Sebastian Sośniak | Lider Sprzedaży i Operacji IVD | COO',
+  description = 'Doświadczony menedżer IVD z ponad 25-letnim stażem w operacjach laboratoryjnych i przywództwie komercyjnym. MBA, odpowiedzialność za P&L i rozwój zespołów sprzedaży na rynku EMEA urządzeń medycznych.',
+  canonical = 'https://metricmind.com',
 } = Astro.props;
 
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Sebastian Sośniak',
-  jobTitle: 'Chief Operating Officer',
+  jobTitle: 'Dyrektor Operacyjny',
   description: description,
   url: canonical,
   sameAs: ['https://www.linkedin.com/in/sebastiansosniak/'],
@@ -43,18 +43,19 @@ const jsonLd = {
     'Customer Segmentation',
     'Business Development',
   ],
+  image: 'https://metricmind.com/og-image.jpg',
   alumniOf: [
     {
       '@type': 'CollegeOrUniversity',
-      name: 'Wrocław University of Economics',
+      name: 'Uniwersytet Ekonomiczny we Wrocławiu',
     },
     {
       '@type': 'CollegeOrUniversity',
-      name: 'Medical University of Wrocław',
+      name: 'Akademia Medyczna we Wrocławiu',
     },
     {
       '@type': 'CollegeOrUniversity',
-      name: 'University of Wrocław',
+      name: 'Uniwersytet Wrocławski',
     },
   ],
 };
@@ -65,8 +66,6 @@ const jsonLd = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
     <!-- SEO -->
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -78,12 +77,15 @@ const jsonLd = {
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content="pl_PL" />
-    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:image" content="https://metricmind.com/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://metricmind.com/og-image.jpg" />
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
@@ -94,23 +96,24 @@ const jsonLd = {
     <link
       rel="preload"
       as="style"
-      href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
       media="print"
       onload="this.media='all'"
     />
     <noscript>
       <link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
       />
     </noscript>
 
     <!-- Favicon -->
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
 
     <meta name="robots" content="index, follow" />
     <meta name="author" content="Sebastian Sośniak" />

@@ -54,29 +54,29 @@ const certifications = [
   },
 ];
 
-function cardClasses(h: string | false) {
+function cardClasses(h: string | boolean) {
   if (h === 'primary')  return 'bg-navy-600 border-navy-500';
   if (h === 'clinical') return 'bg-em-50 border-em-200 hover:border-em-300';
   return 'bg-white border-slate-200 hover:border-em-200';
 }
 
-function iconClasses(h: string | false) {
+function iconClasses(h: string | boolean) {
   if (h === 'primary')  return 'bg-em-400/20 text-em-400';
   if (h === 'clinical') return 'bg-em-400/20 text-em-500';
   return 'bg-navy-50 text-navy-400';
 }
 
-function degreeClasses(h: string | false) {
+function degreeClasses(h: string | boolean) {
   return h === 'primary' ? 'text-white' : 'text-navy-600';
 }
 
-function badgeClasses(h: string | false) {
+function badgeClasses(h: string | boolean) {
   if (h === 'primary')  return 'bg-em-400/20 text-em-400';
   if (h === 'clinical') return 'bg-em-200/50 text-em-700';
   return 'bg-slate-100 text-slate-400';
 }
 
-function institutionClasses(h: string | false) {
+function institutionClasses(h: string | boolean) {
   if (h === 'primary')  return 'text-em-400';
   if (h === 'clinical') return 'text-em-600';
   return 'text-em-500';
