@@ -26,7 +26,7 @@ import labImg from '../assets/photos/lab.png';
     <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center lg:items-start">
       
       <!-- Left: Content (Staggered lower on desktop) -->
-      <div class="text-center lg:text-left lg:mt-32">
+      <div class="text-center lg:text-left lg:mt-20">
         <!-- Eyebrow -->
         <p
           class="text-em-400 text-sm font-bold uppercase tracking-[0.3em] mb-6 opacity-0 animate-[fadeIn_0.6s_cubic-bezier(0.23,1,0.32,1)_0.1s_forwards]"
@@ -37,34 +37,36 @@ import labImg from '../assets/photos/lab.png';
         <!-- H1 -->
         <h1
           id="hero-heading"
-          class="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.05] tracking-tight mb-8 opacity-0 animate-[fadeUp_0.8s_cubic-bezier(0.23,1,0.32,1)_0.2s_forwards]"
+          class="font-serif text-[clamp(3rem,5vw+0.5rem,5rem)] font-bold text-white leading-[1.2] tracking-tight mb-8 opacity-0 animate-[fadeUp_0.8s_cubic-bezier(0.23,1,0.32,1)_0.2s_forwards]"
         >
-          IVD Sales &amp;<br/>Operations Leader
-          <span class="block text-em-400 mt-2">Chief Operating Officer</span>
+          <span class="text-em-400">25 lat</span> w IVD.<br/>
+          Od diagnostyki do biznesu.
         </h1>
 
         <!-- Name tag -->
         <div
-          class="inline-flex items-center gap-3 bg-white/[0.05] border border-white/10 rounded-full px-6 py-2 mb-10 opacity-0 animate-[fadeIn_0.6s_cubic-bezier(0.23,1,0.32,1)_0.35s_forwards]"
+          class="inline-flex items-center gap-3 bg-white/[0.05] border border-white/10 rounded-full px-6 py-2 mb-6 opacity-0 animate-[fadeIn_0.6s_cubic-bezier(0.23,1,0.32,1)_0.35s_forwards]"
         >
           <span class="w-2 h-2 rounded-full bg-em-400" aria-hidden="true"></span>
-          <span class="text-white/90 text-base font-medium tracking-wide">Sebastian Sosniak</span>
+          <span class="text-white/90 text-base font-medium tracking-wide">Sebastian Sośniak</span>
         </div>
 
         <!-- Subtitle -->
-        <p
-          class="text-slate-300/90 text-lg sm:text-xl leading-relaxed mb-12 max-w-2xl mx-auto lg:mx-0 opacity-0 animate-[fadeUp_0.7s_cubic-bezier(0.23,1,0.32,1)_0.5s_forwards]"
+        <div
+          class="text-slate-300/90 text-lg sm:text-xl leading-[1.85] mb-12 max-w-2xl mx-auto lg:mx-0 opacity-0 animate-[fadeUp_0.7s_cubic-bezier(0.23,1,0.32,1)_0.5s_forwards] space-y-5"
         >
-          Ponad 25 lat doświadczenia w branży IVD &mdash; od operacji laboratoryjnych do strategicznego
-          przywództwa komercyjnego. Udokumentowane wyniki sprzedażowe w regionie EMEA, zarządzanie
-          P&amp;L i transformacja cyfrowa.
-        </p>
+          <p>Zaczynałem przy analizatorach, skończyłem z P&amp;L. Dzięki temu widzę ten rynek inaczej
+          niż większość i to jest moja realna przewaga.</p>
+          <p>Laboratoria, producenci, zespoły handlowe, znam każdą z tych perspektyw od środka.
+          Jeśli szukasz kogoś, kto rozumie ten biznes jako manager, doradca lub partner
+          do rozmowy strategii, odezwij się.</p>
+        </div>
 
         <!-- CTA buttons -->
         <div
           class="flex flex-wrap justify-center lg:justify-start gap-4 opacity-0 animate-[fadeUp_0.6s_cubic-bezier(0.23,1,0.32,1)_0.65s_forwards]"
         >
-          <a href="/cv-sebastian-sosniak.pdf" download="CV_Sebastian_Sosniak.pdf" class="btn-primary text-lg px-8 py-4" aria-label="Pobierz CV Sebastian Sosniak (PDF)">
+          <a href="/cv-sebastian-sosniak.pdf" download="CV_Sebastian_Sosniak.pdf" class="btn-primary text-lg px-8 py-4" aria-label="Pobierz CV Sebastian Sośniak (PDF)">
             <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
             </svg>
@@ -75,7 +77,7 @@ import labImg from '../assets/photos/lab.png';
             target="_blank"
             rel="noopener noreferrer"
             class="btn-linkedin text-lg px-8 py-4"
-            aria-label="Profil LinkedIn Sebastian Sosniak (otworzy się w nowej karcie)"
+            aria-label="Profil LinkedIn Sebastian Sośniak (otworzy się w nowej karcie)"
           >
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
@@ -86,18 +88,18 @@ import labImg from '../assets/photos/lab.png';
 
         <!-- Stats strip -->
         <div
-          class="mt-20 pt-10 border-t border-white/10 grid grid-cols-3 gap-8 max-w-2xl mx-auto lg:mx-0 opacity-0 animate-[fadeIn_0.8s_cubic-bezier(0.23,1,0.32,1)_0.8s_forwards]"
+          class="mt-14 pt-10 border-t border-white/10 grid grid-cols-3 gap-8 max-w-2xl mx-auto lg:mx-0 opacity-0 animate-[fadeIn_0.8s_cubic-bezier(0.23,1,0.32,1)_0.8s_forwards]"
           aria-label="Kluczowe liczby"
         >
           {
             [
               { count: 25, suffix: '+', label: 'Lat w branży IVD' },
-              { count: 7,  suffix: '',  label: 'Krajów NEEU' },
+              { count: 7,  suffix: '',  label: 'Krajów regionu EMEA' },
               { count: 110, suffix: '%', label: 'Realizacja targetów' },
             ].map((stat) => (
               <div>
                 <p
-                  class="font-serif text-3xl sm:text-4xl font-bold text-em-400 tabular-nums"
+                  class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-em-400 tabular-nums"
                   data-count={stat.count}
                   data-suffix={stat.suffix}
                 >
@@ -111,7 +113,7 @@ import labImg from '../assets/photos/lab.png';
       </div>
 
       <!-- Right: Lab Image (Hidden on mobile, high on desktop) -->
-      <div class="hidden lg:mt-48 lg:block relative opacity-0 animate-[fadeIn_1s_cubic-bezier(0.23,1,0.32,1)_0.4s_forwards]">
+      <div class="hidden lg:mt-36 lg:block relative opacity-0 animate-[fadeIn_1s_cubic-bezier(0.23,1,0.32,1)_0.4s_forwards]">
         <!-- Decorative frame -->
         <div class="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-em-400/30 rounded-tl-2xl -z-10"></div>
         <div class="absolute -bottom-4 -right-4 w-32 h-32 border-b-2 border-r-2 border-em-400/30 rounded-br-2xl -z-10"></div>
@@ -119,7 +121,7 @@ import labImg from '../assets/photos/lab.png';
         <div class="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-navy-900/50">
           <Image 
             src={labImg} 
-            alt="Sebastian Sosniak w laboratorium diagnostycznym" 
+            alt="Sebastian Sośniak w laboratorium diagnostycznym" 
             class="w-full h-full object-cover grayscale-[0.1] hover:grayscale-0 transition-all duration-700 scale-105 hover:scale-100"
             loading="eager"
           />
