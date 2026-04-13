@@ -81,6 +81,7 @@ export const ui = {
     'linkedin.recommendations': 'Recommendations',
     'linkedin.years': 'Years on LinkedIn',
     'linkedin.social.aria': 'Social proof',
+    'linkedin.testimonials.heading': 'What colleagues say',
 
     'contact.label': 'Contact & Collaboration',
     'contact.heading': "Let's talk",
@@ -205,6 +206,7 @@ export const ui = {
     'linkedin.recommendations': 'Rekomendacje',
     'linkedin.years': 'Lat na LinkedIn',
     'linkedin.social.aria': 'Social proof',
+    'linkedin.testimonials.heading': 'Co mówią współpracownicy',
 
     'contact.label': 'Kontakt i Współpraca',
     'contact.heading': 'Porozmawiajmy',

@@ -1,5 +1,91 @@
 import type { Lang } from './ui';
 
+export interface Testimonial {
+  name: string;
+  title: string;
+  relationship: string;
+  text: string;
+}
+
+export const testimonialsData: Record<Lang, Testimonial[]> = {
+  en: [
+    {
+      name: 'Bruno Pougault',
+      title: 'Senior Global Marketing Manager Hemostasis, HORIBA | MBA',
+      relationship: 'Senior colleague at Horiba',
+      text: "Sebastian is a scientist with extensive experience in the field of hematology and hemostasis. He knows the IVD market inside out. It was a great pleasure to work with Sebastian, who has great human qualities and a perfect vision and analysis of the market in both the short and long term.",
+    },
+    {
+      name: 'France Koperska',
+      title: 'Chief Financial Officer, Yareal Polska',
+      relationship: 'Senior colleague at Horiba',
+      text: "Sebastian has a very high knowledge in his field of experience and managed to build strong relationships with the sales team and clients. It was a pleasure to work with Sebastian thanks to his open mind for new projects.",
+    },
+    {
+      name: 'Agnieszka Łuszczewska',
+      title: 'CFO',
+      relationship: 'Direct supervisor at Horiba',
+      text: "Sebastian is an ambitious and professional specialist in his field. We worked together for many years at Horiba. As a salesperson, he once set himself the goal of managing a product group — and he achieved it. Thanks to his exceptional personality he builds great relationships and achieves his professional as well as personal goals. I highly recommend working with Sebastian.",
+    },
+    {
+      name: 'Aleksandra Lubaczewska',
+      title: 'Client Advisor, Companion Animals Division',
+      relationship: 'Cross-team colleague at Horiba Medical',
+      text: "I worked with Sebastian for several years at Horiba Medical. He is a reliable, substantive professional always focused on solving problems. He maintained excellent relationships with both clients and the internal team, always provided expert assistance, and consistently drove toward the set goal. Through his own diligence and hard work he advanced to a senior position in the company.",
+    },
+    {
+      name: 'Tomasz Kniewski',
+      title: 'Product Specialist, Bracco Imaging Poland',
+      relationship: 'Peer at Horiba Medical',
+      text: "At Horiba Medical, Sebastian and I held equivalent positions — yet he was an invaluable source of expert knowledge for me and the entire sales team. He had outstanding client relationships, acting more as a trusted advisor than a salesperson. During internal training he could translate complex theoretical problems into the practical needs of our clients with remarkable clarity. His rise to Product Manager is the natural result of his knowledge and professionalism. I also remember him as a great colleague: sense of humour, openness, kindness, intelligence, and high personal culture — in both professional and personal relationships.",
+    },
+    {
+      name: 'Marcin Krzysztowski',
+      title: 'Field Service Engineer, GE Healthcare',
+      relationship: 'Cross-team colleague at Horiba',
+      text: "During our several years of collaboration at Horiba, Sebastian proved to be both a wonderful person and an outstanding professional. Always open, he willingly offered advice and assistance in solving application problems. Thanks to his interpersonal skills and excellent client relationships, our company gained many new contracts and was able to grow significantly in Clinical Chemistry.",
+    },
+  ],
+  pl: [
+    {
+      name: 'Bruno Pougault',
+      title: 'Senior Global Marketing Manager Hemostasis, HORIBA | MBA',
+      relationship: 'Współpracownik w Horiba',
+      text: "Sebastian is a scientist with extensive experience in the field of hematology and hemostasis. He knows the IVD market inside out. It was a great pleasure to work with Sebastian, who has great human qualities and a perfect vision and analysis of the market in both the short and long term.",
+    },
+    {
+      name: 'France Koperska',
+      title: 'Chief Financial Officer, Yareal Polska',
+      relationship: 'Przełożona w Horiba',
+      text: "Sebastian has a very high knowledge in his field of experience and managed to build strong relationships with the sales team and clients. It was a pleasure to work with Sebastian thanks to his open mind for new projects.",
+    },
+    {
+      name: 'Agnieszka Łuszczewska',
+      title: 'CFO',
+      relationship: 'Bezpośrednia przełożona w Horiba',
+      text: "Sebastian jest ambitnym i fachowym specjalistą w swojej dziedzinie. Pracowaliśmy razem przez wiele lat w Horibie. Będąc handlowcem, założył sobie kiedyś, że będzie zarządzał grupą produktową i tak się stało. Dzięki wyjątkowej osobowości buduje świetne relacje i realizuje swoje cele zawodowe jak i prywatne. Polecam gorąco współpracę z Sebastianem.",
+    },
+    {
+      name: 'Aleksandra Lubaczewska',
+      title: 'Doradca ds. Klientów, Dział Zwierząt Towarzyszących',
+      relationship: 'Współpracowniczka w Horiba Medical',
+      text: "Współpracowałam z Sebastianem przez kilka lat w Horiba Medical. W mojej ocenie jest pracownikiem rzetelnym, rzeczowym i zawsze zorientowanym na rozwiązanie problemu. Utrzymywał dobre relacje z klientem i zespołem firmy. Zawsze służył fachową pomocą i dążył do osiągnięcia wyznaczonego celu. Dzięki własnej solidności i pracowitości osiągnął wysoki poziom w hierarchii firmy.",
+    },
+    {
+      name: 'Tomasz Kniewski',
+      title: 'Product Specialist, Bracco Imaging Poland',
+      relationship: 'Współpracownik w Horiba Medical',
+      text: "W okresie mojej pracy w Horiba Medical wykonywaliśmy z Sebastianem obowiązki na równorzędnych stanowiskach. Był jednak dla mnie i dla pozostałych członków zespołu sprzedażowego nieocenionym źródłem fachowej wiedzy z zakresu diagnostyki laboratoryjnej. Miał znakomite relacje z klientami, dla których był bardziej fachowym doradcą niż sprzedawcą. W czasie wewnętrznych szkoleń potrafił klarownie wpasować zawiłe problemy teoretyczne w potrzeby naszych odbiorców. Obecna pozycja Product Managera jest potwierdzeniem i naturalnym wynikiem wiedzy i profesjonalizmu Sebastiana. Poczucie humoru, otwartość na ludzi, życzliwość, inteligencja i wysoka kultura osobista to cechy Sebastiana zarówno w relacjach zawodowych, jak i prywatnych.",
+    },
+    {
+      name: 'Marcin Krzysztowski',
+      title: 'Field Service Engineer, GE Healthcare',
+      relationship: 'Współpracownik w Horiba',
+      text: "Podczas naszej kilkuletniej współpracy w firmie Horiba, Sebastian dał się poznać jako wspaniały człowiek i znakomity fachowiec. Zawsze otwarty, chętnie służył radą i pomocą przy rozwiązywaniu problemów aplikacyjnych. Dzięki jego umiejętnościom interpersonalnym i doskonałym relacjom z klientami, nasza firma zyskała wiele nowych kontraktów i mogła rozwijać się w zakresie Chemii Klinicznej.",
+    },
+  ],
+};
+
 export const skillsData: Record<Lang, { title: string; subtitle: string }[]> = {
   en: [
     { title: 'Sales Team Leadership & Development', subtitle: "I built and restructured sales departments — from recruitment through day-to-day team management to people development." },
