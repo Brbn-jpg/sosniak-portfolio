@@ -1,32 +1,29 @@
 ---
-const skills = [
-  { title: 'Przywództwo i rozwój zespołu sprzedaży', subtitle: 'Budowałem i restrukturyzowałem działy sprzedaży — od rekrutacji po codzienną pracę z zespołem i rozwój ludzi.' },
-  { title: 'Rozwój biznesu i strategia wzrostu',     subtitle: 'Otwierałem nowe segmenty rynku, budowałem pipeline i szukałem przychodów tam gdzie inni ich nie widzieli.' },
-  { title: 'Kluczowi klienci i zarządzanie KOL',     subtitle: 'Zarządzałem kluczowymi klientami i relacjami z liderami opinii w laboratoriach klinicznych i weterynaryjnych.' },
-  { title: 'Zarządzanie P&L i budżetem',             subtitle: 'Pełna odpowiedzialność za wynik finansowy — od planowania budżetu po codzienne decyzje wpływające na rentowność.' },
-  { title: 'Segmentacja klientów i polityka cenowa', subtitle: 'Segmentowałem klientów i budowałem politykę cenową która miała sens biznesowy, nie tylko handlowy.' },
-  { title: 'Zarządzanie siecią dystrybucji',         subtitle: 'Zarządzałem siecią dystrybucji w 7 krajach regionu NEEU — od wyboru partnerów po egzekucję celów.' },
-  { title: 'Wiedza produktowa i aplikacyjna',        subtitle: 'Chemia kliniczna, hematologia, hemostaza, immunochemia — znam te obszary od strony laboratorium i od strony produktu.' },
-  { title: 'Analiza rynku i strategia konkurencyjna',subtitle: 'Analizowałem rynek i konkurencję żeby podejmować decyzje oparte na danych, nie na przeczuciach.' },
-];
+import { useTranslations, type Lang } from '../i18n/utils';
+import { skillsData } from '../i18n/data';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const skills = skillsData[lang];
 ---
 
 <section id="skills" class="py-24 bg-slate-50" aria-labelledby="skills-heading">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-14 reveal">
-      <p class="section-label">Kluczowe kompetencje</p>
+      <p class="section-label">{t('skills.label')}</p>
       <h2 id="skills-heading" class="section-heading">
-        Obszary specjalizacji
+        {t('skills.heading')}
       </h2>
       <p class="text-slate-500 mt-4 max-w-xl mx-auto">
-        Unikalna kombinacja wiedzy naukowej i doświadczenia biznesowego w branży IVD i urządzeń medycznych.
+        {t('skills.sub')}
       </p>
     </div>
 
     <ul
       class="reveal-stagger grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
       role="list"
-      aria-label="Lista kompetencji"
+      aria-label={t('skills.label')}
     >
       {
         skills.map((skill) => (
@@ -41,7 +38,6 @@ const skills = [
   </div>
 </section>
 
-<!-- Spring physics (Web Animations API) + mouse-spotlight for skill cards -->
 <script>
   function springKF(
     fromY: number,
@@ -67,9 +63,7 @@ const skills = [
     }));
   }
 
-  const prefersReducedMotion = window.matchMedia(
-    '(prefers-reduced-motion: reduce)'
-  ).matches;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   document.querySelectorAll<HTMLElement>('.skill-card').forEach((card) => {
     let activeAnim: Animation | null = null;

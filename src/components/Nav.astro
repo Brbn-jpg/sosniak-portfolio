@@ -1,52 +1,64 @@
 ---
+import { useTranslations, type Lang } from '../i18n/utils';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
 const navLinks = [
-  { label: 'O mnie', href: '#about' },
-  { label: 'Kompetencje', href: '#skills' },
-  { label: 'Doświadczenie', href: '#experience' },
-  { label: 'Edukacja', href: '#education' },
-  { label: 'Kontakt', href: '#contact-form' },
+  { label: t('nav.about'),      href: '#about' },
+  { label: t('nav.skills'),     href: '#skills' },
+  { label: t('nav.experience'), href: '#experience' },
+  { label: t('nav.education'),  href: '#education' },
+  { label: t('nav.contact'),    href: '#contact-form' },
 ];
 ---
 
 <nav
   id="main-nav"
   class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-  aria-label="Nawigacja główna"
+  aria-label={t('nav.aria')}
 >
-  <!-- Scroll-progress indicator (scroll-driven, Chrome/Edge/Safari; hidden elsewhere) -->
   <div id="scroll-progress" aria-hidden="true"></div>
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
-      <!-- Logo / Name -->
+      <!-- Logo -->
       <a
-        href="/"
+        href={lang === 'en' ? '/' : '/pl/'}
         class="font-serif text-lg font-bold text-white transition-colors duration-200"
-        aria-label="Sebastian Sośniak - strona główna"
+        aria-label={t('nav.home.aria')}
       >
         <span class="text-em-400">S</span>ebastian Sośniak
       </a>
 
       <!-- Desktop links -->
       <ul class="hidden md:flex items-center gap-1" role="list">
-        {
-          navLinks.map((link) => (
-            <li>
-              <a
-                href={link.href}
-                class="nav-link px-3 py-3 rounded-md text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors duration-200"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))
-        }
+        {navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="nav-link px-3 py-3 rounded-md text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors duration-200"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+        <li class="ml-2">
+          <a
+            href={t('nav.lang.href')}
+            class="px-3 py-1.5 rounded-md text-sm font-bold text-em-400 border border-em-400/40 hover:border-em-400 hover:bg-em-400/10 transition-all duration-200"
+            aria-label={t('nav.lang.aria')}
+          >
+            {t('nav.lang.label')}
+          </a>
+        </li>
       </ul>
 
       <!-- Mobile hamburger -->
       <button
         id="mobile-menu-btn"
         class="md:hidden p-3 rounded-md text-white/80 hover:text-white hover:bg-white/10 transition-colors duration-200"
-        aria-label="Otwórz menu"
+        aria-label={t('nav.menu.open')}
         aria-expanded="false"
         aria-controls="mobile-menu"
       >
@@ -65,21 +77,28 @@ const navLinks = [
     id="mobile-menu"
     class="hidden md:hidden border-t border-white/10 bg-navy-600/95 backdrop-blur-sm"
     role="navigation"
-    aria-label="Menu mobilne"
+    aria-label={t('nav.mobile.aria')}
   >
     <ul class="px-4 py-3 space-y-1" role="list">
-      {
-        navLinks.map((link) => (
-          <li>
-            <a
-              href={link.href}
-              class="mobile-nav-link block px-3 py-3 rounded-md text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors duration-200"
-            >
-              {link.label}
-            </a>
-          </li>
-        ))
-      }
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class="mobile-nav-link block px-3 py-3 rounded-md text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors duration-200"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+      <li class="border-t border-white/10 pt-2 mt-1">
+        <a
+          href={t('nav.lang.href')}
+          class="block px-3 py-3 rounded-md text-sm font-bold text-em-400 hover:text-em-300 hover:bg-white/10 transition-colors duration-200"
+          aria-label={t('nav.lang.aria')}
+        >
+          {t('nav.lang.label')} — {t('nav.lang.aria')}
+        </a>
+      </li>
     </ul>
   </div>
 </nav>
@@ -91,7 +110,6 @@ const navLinks = [
   const iconOpen = document.getElementById('icon-open')!;
   const iconClose = document.getElementById('icon-close')!;
 
-  // Scroll-aware nav background
   window.addEventListener('scroll', () => {
     if (window.scrollY > 40) {
       nav.classList.add('bg-navy-600/95', 'backdrop-blur-sm', 'shadow-lg');
@@ -100,7 +118,6 @@ const navLinks = [
     }
   });
 
-  // Mobile toggle
   btn.addEventListener('click', () => {
     const isOpen = !menu.classList.contains('hidden');
     menu.classList.toggle('hidden');
@@ -109,7 +126,6 @@ const navLinks = [
     iconClose.classList.toggle('hidden');
   });
 
-  // Close mobile menu on link click
   document.querySelectorAll('.mobile-nav-link').forEach((link) => {
     link.addEventListener('click', () => {
       menu.classList.add('hidden');

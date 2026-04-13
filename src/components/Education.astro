@@ -1,58 +1,11 @@
 ---
-const education = [
-  {
-    degree: 'MBA – Zarządzanie',
-    institution: 'Uniwersytet Ekonomiczny we Wrocławiu',
-    years: '2012–2014',
-    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"/></svg>`,
-    highlight: 'primary',
-  },
-  {
-    degree: 'Specjalista Diagnostyki Laboratoryjnej',
-    institution: 'Akademia Medyczna we Wrocławiu',
-    years: '2006–2009',
-    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/></svg>`,
-    highlight: 'clinical',
-  },
-  {
-    degree: 'Podyplomowe – Zarządzanie jednostkami gospodarczymi',
-    institution: 'Uniwersytet Wrocławski',
-    years: '1999–2000',
-    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0118 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>`,
-    highlight: false,
-  },
-  {
-    degree: 'Magister – Biologia',
-    institution: 'Uniwersytet Wrocławski',
-    years: '1994–1999',
-    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/></svg>`,
-    highlight: false,
-  },
-];
+import { useTranslations, type Lang } from '../i18n/utils';
+import { educationData } from '../i18n/data';
 
-const certifications = [
-  {
-    name: 'CEO Academy',
-    issuer: 'Laba International Business School',
-    year: 'Grudzień 2025',
-  },
-  {
-    name: 'Operations Director',
-    issuer: 'Laba International Business School',
-    year: '2024',
-  },
-  {
-    name: 'ICAN Business Advisor',
-    issuer: 'Harvard Business Review Poland / ICAN Institute',
-    year: '2018–2019',
-    description: 'Leadership, Strategy, Marketing, Finance',
-  },
-  {
-    name: 'Certyfikowany Trener Hematologii',
-    issuer: 'Mindray Medical',
-    year: '2022',
-  },
-];
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const { degrees, certs } = educationData[lang];
 
 function cardClasses(h: string | boolean) {
   if (h === 'primary')  return 'bg-navy-600 border-navy-500';
@@ -86,9 +39,9 @@ function institutionClasses(h: string | boolean) {
 <section id="education" class="py-24 bg-slate-50" aria-labelledby="education-heading">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="mb-14 reveal">
-      <p class="section-label">Wykształcenie i certyfikaty</p>
+      <p class="section-label">{t('edu.label')}</p>
       <h2 id="education-heading" class="section-heading">
-        Edukacja
+        {t('edu.heading')}
       </h2>
     </div>
 
@@ -96,11 +49,11 @@ function institutionClasses(h: string | boolean) {
       <!-- Education degrees -->
       <div class="reveal">
         <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-6">
-          Stopnie i specjalizacje
+          {t('edu.degrees')}
         </h3>
         <ul class="space-y-3" role="list">
           {
-            education.map((edu) => (
+            degrees.map((edu) => (
               <li class={`border rounded-xl p-5 hover:shadow-sm transition-all duration-200 ${cardClasses(edu.highlight)}`}>
                 <div class="flex gap-4 items-start">
                   <div class={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 ${iconClasses(edu.highlight)}`}>
@@ -123,11 +76,11 @@ function institutionClasses(h: string | boolean) {
       <!-- Certifications -->
       <div class="reveal">
         <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-6">
-          Certyfikaty i szkolenia
+          {t('edu.certs')}
         </h3>
         <ul class="space-y-3" role="list">
           {
-            certifications.map((cert) => (
+            certs.map((cert) => (
               <li class="bg-white border border-slate-200 rounded-xl px-5 py-4 hover:border-em-200 hover:shadow-sm transition-all duration-200">
                 <div class="flex items-start justify-between gap-3 mb-0.5">
                   <h4 class="font-semibold text-navy-600 text-sm leading-snug">{cert.name}</h4>

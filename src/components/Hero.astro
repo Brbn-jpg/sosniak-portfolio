@@ -1,6 +1,11 @@
 ---
 import { Image } from 'astro:assets';
 import labImg from '../assets/photos/lab.png';
+import { useTranslations, type Lang } from '../i18n/utils';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <header
@@ -24,14 +29,14 @@ import labImg from '../assets/photos/lab.png';
 
   <div class="hero-parallax relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 pt-32 lg:py-32 w-full">
     <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center lg:items-start">
-      
-      <!-- Left: Content (Staggered lower on desktop) -->
+
+      <!-- Left: Content -->
       <div class="text-center lg:text-left lg:mt-20">
         <!-- Eyebrow -->
         <p
           class="text-em-400 text-sm font-bold uppercase tracking-[0.3em] mb-6 opacity-0 animate-[fadeIn_0.6s_cubic-bezier(0.23,1,0.32,1)_0.1s_forwards]"
         >
-          Strategiczne przywództwo IVD
+          {t('hero.eyebrow')}
         </p>
 
         <!-- H1 -->
@@ -39,8 +44,8 @@ import labImg from '../assets/photos/lab.png';
           id="hero-heading"
           class="font-serif text-[clamp(3rem,5vw+0.5rem,5rem)] font-bold text-white leading-[1.2] tracking-tight mb-8 opacity-0 animate-[fadeUp_0.8s_cubic-bezier(0.23,1,0.32,1)_0.2s_forwards]"
         >
-          <span class="sr-only">Sebastian Sośniak — </span><span class="text-em-400">25 lat</span> w IVD.<br/>
-          Od diagnostyki do biznesu.
+          <span class="sr-only">{t('hero.h1.sr')}</span><span class="text-em-400">{t('hero.h1.accent')}</span>{t('hero.h1.after')}<br/>
+          {t('hero.h1.line2')}
         </h1>
 
         <!-- Name tag -->
@@ -55,29 +60,27 @@ import labImg from '../assets/photos/lab.png';
         <div
           class="text-slate-300/90 text-lg sm:text-xl leading-[1.85] mb-12 max-w-2xl mx-auto lg:mx-0 opacity-0 animate-[fadeUp_0.7s_cubic-bezier(0.23,1,0.32,1)_0.5s_forwards] space-y-5"
         >
-          <p>Zaczynałem przy analizatorach, skończyłem z P&amp;L. Dzięki temu widzę ten rynek inaczej
-          niż większość i to jest moja realna przewaga.</p>
-          <p>Laboratoria, producenci, zespoły handlowe, znam każdą z tych perspektyw od środka.
-          Jeśli szukasz kogoś, kto rozumie ten biznes jako manager, doradca lub partner
-          do rozmowy strategii, odezwij się.</p>
+          <p>{t('hero.p1')}</p>
+          <p>{t('hero.p2')}</p>
+          <p>{t('hero.p3')}</p>
         </div>
 
         <!-- CTA buttons -->
         <div
           class="flex flex-wrap justify-center lg:justify-start gap-4 opacity-0 animate-[fadeUp_0.6s_cubic-bezier(0.23,1,0.32,1)_0.65s_forwards]"
         >
-          <a href="/cv-sebastian-sosniak.pdf" download="CV_Sebastian_Sosniak.pdf" class="btn-primary text-lg px-8 py-4" aria-label="Pobierz CV Sebastian Sośniak (PDF)">
+          <a href="/cv-sebastian-sosniak.pdf" download="CV_Sebastian_Sosniak.pdf" class="btn-primary text-lg px-8 py-4" aria-label={t('hero.cta.cv.aria')}>
             <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
             </svg>
-            Pobierz CV
+            {t('hero.cta.cv')}
           </a>
           <a
             href="https://www.linkedin.com/in/sebastiansosniak/"
             target="_blank"
             rel="noopener noreferrer"
             class="btn-linkedin text-lg px-8 py-4"
-            aria-label="Profil LinkedIn Sebastian Sośniak (otworzy się w nowej karcie)"
+            aria-label={t('hero.cta.linkedin.aria')}
           >
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
@@ -89,13 +92,13 @@ import labImg from '../assets/photos/lab.png';
         <!-- Stats strip -->
         <div
           class="mt-14 pt-10 border-t border-white/10 grid grid-cols-3 gap-8 max-w-2xl mx-auto lg:mx-0 opacity-0 animate-[fadeIn_0.8s_cubic-bezier(0.23,1,0.32,1)_0.8s_forwards]"
-          aria-label="Kluczowe liczby"
+          aria-label="Key figures"
         >
           {
             [
-              { count: 25, suffix: '+', label: 'Lat w branży IVD' },
-              { count: 7,  suffix: '',  label: 'Krajów regionu EMEA' },
-              { count: 110, suffix: '%', label: 'Realizacja targetów' },
+              { count: 25, suffix: '+', label: t('hero.stat.years') },
+              { count: 7,  suffix: '',  label: t('hero.stat.countries') },
+              { count: 110, suffix: '%', label: t('hero.stat.target') },
             ].map((stat) => (
               <div>
                 <p
@@ -112,20 +115,18 @@ import labImg from '../assets/photos/lab.png';
         </div>
       </div>
 
-      <!-- Right: Lab Image (Hidden on mobile, high on desktop) -->
+      <!-- Right: Lab Image -->
       <div class="hidden lg:mt-36 lg:block relative opacity-0 animate-[fadeIn_1s_cubic-bezier(0.23,1,0.32,1)_0.4s_forwards]">
-        <!-- Decorative frame -->
         <div class="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-em-400/30 rounded-tl-2xl -z-10"></div>
         <div class="absolute -bottom-4 -right-4 w-32 h-32 border-b-2 border-r-2 border-em-400/30 rounded-br-2xl -z-10"></div>
-        
+
         <div class="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-navy-900/50">
-          <Image 
-            src={labImg} 
-            alt="Sebastian Sośniak w laboratorium diagnostycznym" 
+          <Image
+            src={labImg}
+            alt="Sebastian Sośniak w laboratorium diagnostycznym"
             class="w-full h-full object-cover grayscale-[0.1] hover:grayscale-0 transition-all duration-700 scale-105 hover:scale-100"
             loading="eager"
           />
-          <!-- Subtle overlay -->
           <div class="absolute inset-0 bg-gradient-to-tr from-navy-900/40 to-transparent"></div>
         </div>
 
@@ -138,8 +139,8 @@ import labImg from '../assets/photos/lab.png';
               </svg>
             </div>
             <div>
-              <p class="text-[10px] uppercase tracking-wider font-bold text-slate-400">Ekspercka wiedza</p>
-              <p class="text-sm font-bold text-navy-600 leading-none">Praktyka laboratoryjna</p>
+              <p class="text-[10px] uppercase tracking-wider font-bold text-slate-400">{t('hero.badge')}</p>
+              <p class="text-sm font-bold text-navy-600 leading-none">{t('hero.badge.sub')}</p>
             </div>
           </div>
         </div>

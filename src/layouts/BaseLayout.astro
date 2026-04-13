@@ -1,21 +1,23 @@
 ---
+import { useTranslations, type Lang } from '../i18n/utils';
+
 export interface Props {
-  title?: string;
-  description?: string;
-  canonical?: string;
+  lang?: Lang;
 }
 
-const {
-  title = 'Sebastian Sośniak | Lider Sprzedaży i Operacji IVD | COO',
-  description = 'Doświadczony menedżer IVD z ponad 25-letnim stażem w operacjach laboratoryjnych i przywództwie komercyjnym. MBA, odpowiedzialność za P&L i rozwój zespołów sprzedaży na rynku EMEA urządzeń medycznych.',
-  canonical = 'https://metricmind.com',
-} = Astro.props;
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
+
+const title = t('meta.title');
+const description = t('meta.description');
+const canonical = lang === 'en' ? 'https://metricmind.com/' : 'https://metricmind.com/pl/';
+const locale = lang === 'en' ? 'en_US' : 'pl_PL';
 
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Sebastian Sośniak',
-  jobTitle: 'Dyrektor Operacyjny',
+  jobTitle: lang === 'en' ? 'Chief Operating Officer' : 'Dyrektor Operacyjny',
   description: description,
   url: canonical,
   sameAs: ['https://www.linkedin.com/in/sebastiansosniak/'],
@@ -45,24 +47,15 @@ const jsonLd = {
   ],
   image: 'https://metricmind.com/og-image.jpg',
   alumniOf: [
-    {
-      '@type': 'CollegeOrUniversity',
-      name: 'Uniwersytet Ekonomiczny we Wrocławiu',
-    },
-    {
-      '@type': 'CollegeOrUniversity',
-      name: 'Akademia Medyczna we Wrocławiu',
-    },
-    {
-      '@type': 'CollegeOrUniversity',
-      name: 'Uniwersytet Wrocławski',
-    },
+    { '@type': 'CollegeOrUniversity', name: 'Uniwersytet Ekonomiczny we Wrocławiu' },
+    { '@type': 'CollegeOrUniversity', name: 'Akademia Medyczna we Wrocławiu' },
+    { '@type': 'CollegeOrUniversity', name: 'Uniwersytet Wrocławski' },
   ],
 };
 ---
 
 <!doctype html>
-<html lang="pl">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -70,13 +63,16 @@ const jsonLd = {
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="en" href="https://metricmind.com/" />
+    <link rel="alternate" hreflang="pl" href="https://metricmind.com/pl/" />
+    <link rel="alternate" hreflang="x-default" href="https://metricmind.com/" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="profile" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:locale" content="pl_PL" />
+    <meta property="og:locale" content={locale} />
     <meta property="og:image" content="https://metricmind.com/og-image.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -90,7 +86,7 @@ const jsonLd = {
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
-    <!-- Google Fonts: preconnect + non-blocking load (avoids render-blocking @import) -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -119,17 +115,15 @@ const jsonLd = {
     <meta name="author" content="Sebastian Sośniak" />
   </head>
   <body>
-    <!-- Skip-to-main link (WCAG 2.4.1 Bypass Blocks, Level A) -->
     <a
       href="#main-content"
       class="fixed top-0 left-1/2 -translate-x-1/2 -translate-y-full focus-visible:translate-y-0 z-[200] bg-em-400 text-white px-5 py-2.5 rounded-b-lg font-medium text-sm transition-transform duration-200 focus-visible:outline-none shadow-lg"
     >
-      Przejdź do treści
+      {t('skip.link')}
     </a>
 
     <slot />
 
-    <!-- Scroll reveal observer -->
     <script>
       const observer = new IntersectionObserver(
         (entries) => {
@@ -146,7 +140,6 @@ const jsonLd = {
         observer.observe(el);
       });
 
-      // Number counter animation
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
       const counterObserver = new IntersectionObserver(
