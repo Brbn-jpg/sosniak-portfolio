@@ -25,7 +25,7 @@ export const testimonialsData: Record<Lang, Testimonial[]> = {
       name: 'Agnieszka Łuszczewska',
       title: 'CFO',
       relationship: 'Direct supervisor at Horiba',
-      text: "Sebastian is an ambitious and professional specialist in his field. We worked together for many years at Horiba. As a salesperson, he once set himself the goal of managing a product group — and he achieved it. Thanks to his exceptional personality he builds great relationships and achieves his professional as well as personal goals. I highly recommend working with Sebastian.",
+      text: "Sebastian is an ambitious and professional specialist in his field. We worked together for many years at Horiba. As a salesperson, he once set himself the goal of managing a product group, and he achieved it. Thanks to his exceptional personality he builds great relationships and achieves his professional as well as personal goals. I highly recommend working with Sebastian.",
     },
     {
       name: 'Aleksandra Lubaczewska',
@@ -37,7 +37,7 @@ export const testimonialsData: Record<Lang, Testimonial[]> = {
       name: 'Tomasz Kniewski',
       title: 'Product Specialist, Bracco Imaging Poland',
       relationship: 'Peer at Horiba Medical',
-      text: "At Horiba Medical, Sebastian and I held equivalent positions — yet he was an invaluable source of expert knowledge for me and the entire sales team. He had outstanding client relationships, acting more as a trusted advisor than a salesperson. During internal training he could translate complex theoretical problems into the practical needs of our clients with remarkable clarity. His rise to Product Manager is the natural result of his knowledge and professionalism. I also remember him as a great colleague: sense of humour, openness, kindness, intelligence, and high personal culture — in both professional and personal relationships.",
+      text: "At Horiba Medical, Sebastian and I held equivalent positions, yet he was an invaluable source of expert knowledge for me and the entire sales team. He had outstanding client relationships, acting more as a trusted advisor than a salesperson. During internal training he could translate complex theoretical problems into the practical needs of our clients with remarkable clarity. His rise to Product Manager is the natural result of his knowledge and professionalism. I also remember him as a great colleague: sense of humour, openness, kindness, intelligence, and high personal culture, in both professional and personal relationships.",
     },
     {
       name: 'Marcin Krzysztowski',
@@ -88,13 +88,13 @@ export const testimonialsData: Record<Lang, Testimonial[]> = {
 
 export const skillsData: Record<Lang, { title: string; subtitle: string }[]> = {
   en: [
-    { title: 'Sales Team Leadership & Development', subtitle: "I built and restructured sales departments — from recruitment through day-to-day team management to people development." },
+    { title: 'Sales Team Leadership & Development', subtitle: "I built and restructured sales departments: from recruitment through day-to-day team management to people development." },
     { title: 'Business Development & Growth Strategy', subtitle: "I opened new market segments, built pipelines, and found revenue where others didn't see it." },
     { title: 'Key Accounts & KOL Management', subtitle: 'I managed key accounts and relationships with opinion leaders in clinical and veterinary laboratories.' },
-    { title: 'P&L & Budget Management', subtitle: 'Full accountability for financial results — from budget planning to daily decisions impacting profitability.' },
+    { title: 'P&L & Budget Management', subtitle: 'Full accountability for financial results: from budget planning to daily decisions impacting profitability.' },
     { title: 'Customer Segmentation & Pricing', subtitle: "I segmented customers and built pricing policies that made business sense, not just commercial sense." },
-    { title: 'Distribution Network Management', subtitle: 'I managed a distribution network across 7 NEEU countries — from partner selection to target execution.' },
-    { title: 'Product & Application Knowledge', subtitle: 'Clinical chemistry, haematology, haemostasis, immunochemistry — I know these areas from the laboratory side and the product side.' },
+    { title: 'Distribution Network Management', subtitle: 'I managed a distribution network across 7 NEEU countries: from partner selection to target execution.' },
+    { title: 'Product & Application Knowledge', subtitle: 'Clinical chemistry, haematology, haemostasis, immunochemistry. I know these areas from the laboratory side and the product side.' },
     { title: 'Market Analysis & Competitive Strategy', subtitle: 'I analysed markets and competition to make decisions based on data, not gut feeling.' },
   ],
   pl: [
@@ -128,9 +128,9 @@ export const experienceData: Record<Lang, Experience[]> = {
       location: 'Warsaw, Poland',
       current: true,
       highlights: [
-        'Full P&L accountability for a veterinary diagnostics laboratory — managing an 18-person multidisciplinary team (lab, sales, customer service)',
+        'Full P&L accountability for a veterinary diagnostics laboratory, managing an 18-person multidisciplinary team (lab, sales, customer service)',
         'Acquisition and restructuring of the sales department: customer segmentation, discount policy renegotiation, building a structured commercial pipeline',
-        'Designed and launched a partner programme for smaller outsourcing laboratories — new revenue streams',
+        'Designed and launched a partner programme for smaller outsourcing laboratories, creating new revenue streams',
         'Annual budget management, financial forecasting, cost analysis, and profitability optimisation',
         'Developed a digital transformation roadmap (mobile app, courier integration, web portal) with ROI analysis',
       ],
@@ -152,13 +152,13 @@ export const experienceData: Record<Lang, Experience[]> = {
       period: '2022 – Jan 2024',
       role: 'Clinical Application Specialist IVD (NEEU Region)',
       company: 'Mindray Medical Poland Sp. z o.o.',
-      location: 'NEEU Region — 7 countries',
+      location: 'NEEU Region, 7 countries',
       current: false,
       highlights: [
         'Implementation of haematology analysers across 7 NEEU countries, including a strategic installation at Hospital Clinic de Barcelona',
-        'Certified Mindray Haematology Trainer — clinical and technical training for laboratories and distributors',
+        'Certified Mindray Haematology Trainer: clinical and technical training for laboratories and distributors',
         'Customer service procedure audits and standardisation; KOL relationship management and local distribution networks',
-        'Market data collection across 7 countries — contribution to regional commercial strategy and HQ product roadmap',
+        'Market data collection across 7 countries, contributing to regional commercial strategy and HQ product roadmap',
       ],
       tags: ['Mindray', 'IVD Haematology', 'Certified Trainer', 'NEEU', '7 countries'],
     },
@@ -169,7 +169,7 @@ export const experienceData: Record<Lang, Experience[]> = {
       location: 'Gliwice, Poland',
       current: false,
       highlights: [
-        'Management of the IVD product portfolio for a Polish diagnostics distributor — positioning, promotional activities, and sales support',
+        'Management of the IVD product portfolio for a Polish diagnostics distributor: positioning, promotional activities, and sales support',
         'Developing go-to-market plans and customer materials in collaboration with commercial and technical teams',
       ],
       tags: ['IVD', 'Product Manager', 'Distribution', 'BOR-POL'],
@@ -181,8 +181,8 @@ export const experienceData: Record<Lang, Experience[]> = {
       location: 'Poland and EMEA',
       current: false,
       highlights: [
-        'Consistently exceeded annual sales targets at 110%+ — 2× winner of the TOP Performance Club in the European Horiba network',
-        "Signed an exclusive HbA1c test contract with Diagnostyka — Poland's largest laboratory network",
+        'Consistently exceeded annual sales targets at 110%+, 2× winner of the TOP Performance Club in the European Horiba network',
+        "Signed an exclusive HbA1c test contract with Diagnostyka, Poland's largest laboratory network",
         'Go-to-market strategy for new products: market analysis, positioning, pricing, campaigns, and sales team enablement',
         'KOL relationship development in clinical chemistry and haemostasis; representing Horiba at scientific congresses',
       ],
@@ -207,7 +207,7 @@ export const experienceData: Record<Lang, Experience[]> = {
       location: 'Poland',
       current: false,
       highlights: [
-        'Building and managing a clinical customer portfolio in an assigned territory — consistently meeting and exceeding commercial targets',
+        'Building and managing a clinical customer portfolio in an assigned territory, consistently meeting and exceeding commercial targets',
         'Direct sales and relationship management with clinical laboratories',
       ],
       tags: ['Horiba ABX', 'Sales', 'Key Accounts'],
@@ -216,12 +216,12 @@ export const experienceData: Record<Lang, Experience[]> = {
       period: '2006 – 2010',
       role: 'Laboratory Manager',
       company: 'Diagnostyka Sp. z o.o.',
-      location: 'Opole region — Gynaecology-Obstetrics Hospital, Neuropsychiatric Hospital',
+      location: 'Opole region: Gynaecology-Obstetrics Hospital, Neuropsychiatric Hospital',
       current: false,
       highlights: [
         'Operational management of diagnostic laboratories in hospitals in the Opole region',
         'Quality systems, process optimisation, personnel supervision, and analytical equipment management',
-        'Deep understanding of laboratory procurement decisions — a valuable perspective for subsequent supplier-side roles',
+        'Deep understanding of laboratory procurement decisions, a valuable perspective for subsequent supplier-side roles',
       ],
       tags: ['Lab Manager', 'Diagnostyka', 'QA/QC', 'Operations'],
     },

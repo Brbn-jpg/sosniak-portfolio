@@ -18,11 +18,11 @@ export const ui = {
     'nav.lang.aria': 'Przełącz na polski',
 
     'hero.eyebrow': 'IVD Strategic Leadership',
-    'hero.h1.sr': 'Sebastian Sośniak — ',
+    'hero.h1.sr': 'Sebastian Sośniak: ',
     'hero.h1.accent': '25 years',
     'hero.h1.after': ' in IVD.',
     'hero.h1.line2': 'From diagnostics to business.',
-    'hero.p1': 'From working with analysers to P&L accountability — I combine operational experience with a business perspective and make better decisions.',
+    'hero.p1': 'From working with analysers to P&L accountability, I combine operational experience with a business perspective and make better decisions.',
     'hero.p2': 'I know this market from every angle: laboratories, manufacturers, and sales teams. I support as manager, advisor, and strategic partner.',
     'hero.p3': "If you're looking for someone who understands this business and delivers results, let's talk.",
     'hero.cta.cv': 'Download CV',
@@ -36,8 +36,8 @@ export const ui = {
 
     'about.label': 'About me',
     'about.heading': 'Bridging science with&nbsp;business<br/>for <strong class="text-em-500 font-bold">25&nbsp;years</strong>',
-    'about.quote': '"After 25 years in this industry I know one thing for certain — good processes and tools matter, but without an engaged team they are simply worthless."',
-    'about.body': "That's why regardless of who I work with or speak to — whether a director, technician, diagnostician, cleaner, or courier — I approach everyone the same way, with attention and respect. People feel when they are truly seen. And that's what builds teams you actually want to work with.",
+    'about.quote': '"After 25 years in this industry I know one thing for certain: good processes and tools matter, but without an engaged team they are simply worthless."',
+    'about.body': "That's why regardless of who I work with or speak to, whether a director, technician, diagnostician, cleaner, or courier, I approach everyone the same way, with attention and respect. People feel when they are truly seen. And that's what builds teams you actually want to work with.",
     'about.status': 'Open to new challenges',
     'about.lang.pl': 'Polish',
     'about.lang.en': 'English',
@@ -85,7 +85,7 @@ export const ui = {
 
     'contact.label': 'Contact & Collaboration',
     'contact.heading': "Let's talk",
-    'contact.body': "If you operate in IVD and are looking for someone who knows this market from the inside — write to me. Whether it's a managerial role, advisory project, or consulting collaboration, I'd be happy to discuss what we could do together.",
+    'contact.body': "If you operate in IVD and are looking for someone who knows this market from the inside, write to me. Whether it's a managerial role, advisory project, or consulting collaboration, I'd be happy to discuss what we could do together.",
     'contact.biz.title': 'Business enquiries',
     'contact.biz.desc': 'For companies interested in sales restructuring or market development.',
     'contact.net.title': 'Networking',
