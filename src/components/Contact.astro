@@ -4,7 +4,6 @@ import { useTranslations, type Lang } from '../i18n/utils';
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
 const t = useTranslations(lang);
-const formspreeId = import.meta.env.PUBLIC_FORMSPREE_ID;
 ---
 
 <section id="contact-form" class="py-24 bg-slate-50" aria-labelledby="contact-heading">
@@ -51,7 +50,7 @@ const formspreeId = import.meta.env.PUBLIC_FORMSPREE_ID;
       <!-- Right: Form -->
       <div class="reveal bg-white rounded-3xl p-8 md:p-10 shadow-xl shadow-navy-900/5 border border-slate-100">
         <div id="form-container">
-          <form id="contact-form-element" action={`https://formspree.io/f/${formspreeId}`} method="POST" class="space-y-5">
+          <form id="contact-form-element" action="/api/contact.php" method="POST" class="space-y-5">
             <div class="grid md:grid-cols-2 gap-5">
               <div class="space-y-2">
                 <label for="name" class="text-xs font-bold text-navy-600 uppercase tracking-wider">{t('contact.name.label')}</label>
