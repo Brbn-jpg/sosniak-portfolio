@@ -85,7 +85,7 @@ export const ui = {
 
     'contact.label': 'Contact & Collaboration',
     'contact.heading': "Let's talk",
-    'contact.body': "If you operate in IVD and are looking for someone who knows this market from the inside, write to me. Whether it's a managerial role, advisory project, or consulting collaboration, I'd be happy to discuss what we could do together.",
+    'contact.body': "Years of building and leading teams have taught me one thing — most problems are process problems, not people problems. If that sounds familiar, whatever your industry, write to me.",
     'contact.biz.title': 'Business enquiries',
     'contact.biz.desc': 'For companies interested in sales restructuring or market development.',
     'contact.net.title': 'Networking',
@@ -210,7 +210,7 @@ export const ui = {
 
     'contact.label': 'Kontakt i Współpraca',
     'contact.heading': 'Porozmawiajmy',
-    'contact.body': 'Jeśli działasz w IVD i szukasz kogoś, kto zna ten rynek od środka — napisz do mnie. Czy to rola managerska, projekt doradczy czy współpraca konsultingowa, chętnie porozmawiam o tym, co możemy razem zrobić.',
+    'contact.body': 'Lata doświadczenia w budowaniu i prowadzeniu zespołów nauczyły mnie jednego — większość problemów to problemy z procesem, nie z ludźmi. Jeśli to brzmi znajomo, niezależnie od branży, napisz do mnie.',
     'contact.biz.title': 'Zapytania biznesowe',
     'contact.biz.desc': 'Dla firm zainteresowanych restrukturyzacją sprzedaży lub rozwojem rynkowym.',
     'contact.net.title': 'Networking',

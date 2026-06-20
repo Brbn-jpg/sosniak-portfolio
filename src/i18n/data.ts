@@ -530,6 +530,16 @@ export const educationData: Record<Lang, { degrees: Degree[]; certs: Cert[] }> =
       ],
       certs: [
         {
+          name: "AI in Sales",
+          issuer: "BUZZ center – AI for Business",
+          year: "June 2026",
+        },
+        {
+          name: "Sales Process Management in Business",
+          issuer: "Laba International Business School",
+          year: "April 2026",
+        },
+        {
           name: "CEO Academy",
           issuer: "Laba International Business School",
           year: "December 2025",
@@ -540,20 +550,15 @@ export const educationData: Record<Lang, { degrees: Degree[]; certs: Cert[] }> =
           year: "2024",
         },
         {
-          name: "Sales Process Management in Business",
-          issuer: "Laba International Business School",
-          year: "April 2026",
-        },
-        {
-          name: "ICAN Business Advisor",
-          issuer: "Harvard Business Review Poland / ICAN Institute",
-          year: "2018–2019",
-          description: "Leadership, Strategy, Marketing, Finance",
-        },
-        {
           name: "Certified Haematology Trainer",
           issuer: "Mindray Medical",
           year: "2022",
+        },
+        {
+          name: "Manager Development Programme – ICAN Business Advisor",
+          issuer: "Harvard Business Review Poland / ICAN Institute",
+          year: "2018–2019",
+          description: "Leadership, Strategy, Marketing, Finance, Communication, Personal Effectiveness",
         },
       ],
     },
@@ -590,6 +595,16 @@ export const educationData: Record<Lang, { degrees: Degree[]; certs: Cert[] }> =
       ],
       certs: [
         {
+          name: "AI w sprzedaży",
+          issuer: "BUZZ center – AI dla firm",
+          year: "Czerwiec 2026",
+        },
+        {
+          name: "Zarządzanie procesem sprzedaży w biznesie",
+          issuer: "Laba International Business School",
+          year: "Kwiecień 2026",
+        },
+        {
           name: "CEO Academy",
           issuer: "Laba International Business School",
           year: "Grudzień 2025",
@@ -600,20 +615,15 @@ export const educationData: Record<Lang, { degrees: Degree[]; certs: Cert[] }> =
           year: "2024",
         },
         {
-          name: "Zarządzanie procesem sprzedaży w biznesie",
-          issuer: "Laba International Business School",
-          year: "Kwiecień 2026",
-        },
-        {
-          name: "ICAN Business Advisor",
-          issuer: "Harvard Business Review Poland / ICAN Institute",
-          year: "2018–2019",
-          description: "Leadership, Strategy, Marketing, Finance",
-        },
-        {
           name: "Certyfikowany Trener Hematologii",
           issuer: "Mindray Medical",
           year: "2022",
+        },
+        {
+          name: "Program Rozwoju Menedżerów – ICAN Business Advisor",
+          issuer: "Harvard Business Review Poland / ICAN Institute",
+          year: "2018–2019",
+          description: "Leadership, Strategy, Marketing, Finance, Communication, Personal Effectiveness",
         },
       ],
     },
